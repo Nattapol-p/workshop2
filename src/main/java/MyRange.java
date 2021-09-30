@@ -17,4 +17,11 @@ public class MyRange {
     public int getStart() {
         return Integer.parseInt(input.charAt(1) + "");
     }
+
+    public void validate() {
+        if(!input.startsWith("[") || !input.startsWith("(")){
+            throw new InputInvalidException("Input error");
+        }
+
+    }
 }
