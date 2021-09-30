@@ -27,9 +27,7 @@ public class MyRangeFailureTest {
     public void case02(){
 
         MyRange range = new MyRange("1,5]");
-        Exception e = assertThrows(InputInvalidException.class,() -> {
-            range.validate();
-        });
+        Exception e = assertThrows(InputInvalidException.class, range::validate);
         assertEquals("Input error",e.getMessage());
 
     }
