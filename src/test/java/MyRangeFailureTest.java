@@ -1,8 +1,5 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import javax.imageio.stream.ImageInputStreamImpl;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MyRangeFailureTest {
