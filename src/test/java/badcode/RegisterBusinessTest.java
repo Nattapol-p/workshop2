@@ -71,4 +71,23 @@ public class RegisterBusinessTest {
         assertEquals("Can't save a speaker.",exception.getMessage());
     }
 
+    @Test
+    @DisplayName("Exception Can't save speaker.")
+    public void case06(){
+        RegisterBusiness business = new RegisterBusiness();
+        Exception exception = assertThrows(SaveSpeakerException.class,() ->{
+            Speaker speaker = new Speaker();
+            speaker.setFirstName("nattapol");
+            speaker.setLastName("p.");
+            speaker.setEmail("nattapol@gmail.com");
+            business.register(new SpeakerRepository() {
+                @Override
+                public Integer saveSpeaker(Speaker speaker) {
+                    throw new RuntimeException();
+                }
+            }, speaker);
+        });
+        assertEquals("Can't save speaker",exception.getMessage());
+    }
+
 }
