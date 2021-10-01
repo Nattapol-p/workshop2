@@ -87,7 +87,24 @@ public class RegisterBusinessTest {
                 }
             }, speaker);
         });
-        assertEquals("Can't save speaker",exception.getMessage());
+        assertEquals("Can't save a speaker.",exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("save speaker.")
+    public void case07(){
+        RegisterBusiness business = new RegisterBusiness();
+        Speaker speaker = new Speaker();
+        speaker.setFirstName("nattapol");
+        speaker.setLastName("p.");
+        speaker.setEmail("nattapol@gmail.com");
+        int id = business.register(new SpeakerRepository() {
+            @Override
+            public Integer saveSpeaker(Speaker speaker) {
+                return 100;
+            }
+        }, speaker);
+        assertEquals(100,id);
     }
 
 }
